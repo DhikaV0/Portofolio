@@ -1,387 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andhika's Portfolio</title>
-  <style>
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #535C91;
-      border-radius: 9999px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #9290C3;
-    }
-
-    body {
-      scrollbar-width: thin;
-      scrollbar-color: #535C91 transparent;
-      overflow-x: hidden;
-    }
-  </style>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#070F2B',
-            semidark: '#1B1A55',
-            accent: '#9290C3',
-            highlight: '#535C91'
-          },
-          fontFamily: {
-            poppins: ['Poppins', 'sans-serif']
-          },
-          boxShadow: {
-            section: 'inset 0 -20px 30px -10px rgba(0,0,0,0.5)',
-        }
-        }
-      }
-    }
-  </script>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <!-- AOS (Animate on Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <!-- Tah Logo -->
-  <link rel="icon" href="Assets/Picture/Sensei - Blue Archive.jpg" type="image/png" />
-</head>
-<body class="bg-primary text-white font-poppins">
-
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 backdrop-blur-sm bg-semidark/80 shadow-md">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-accent">Andhika</h1>
-      <nav class="flex space-x-6 text-lg">
-        <a href="#home" class="hover:text-highlight">Home</a>
-        <a href="#about" class="hover:text-highlight">About</a>
-        <a href="#skills" class="hover:text-highlight">Skills</a>
-        <a href="#project" class="hover:text-highlight">Project</a>
-        <a href="#contact" class="hover:text-highlight">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-24 gap-10 pt-32 md:pt-10 scroll-mt-40 shadow-section" data-aos="fade-up">
-    <div class="w-64 h-64 md:w-[30vw] md:h-[30vw] rounded-full overflow-hidden shadow-xl">
-      <img src="Assets/Picture/Hoshimi Miyabi _ ZZZ.jpg" alt="Profile" class="w-full h-full object-cover" />
-    </div>
-    <div class="text-center md:text-left max-w-xl">
-      <h1 class="text-4xl md:text-6xl font-bold leading-tight">Hi, I'm <span class="text-accent">Andhika</span></h1>
-      <h3 class="text-2xl md:text-4xl font-bold typing-text mt-2">I'm a <span class="text-accent" id="typing"></span></h3>
-      <p class="mt-4 text-sm md:text-base text-gray-300">Im Andhika Judha Pratama, you can call me Dhika.</p>
-
-      <div class="flex justify-center md:justify-start space-x-4 mt-6">
-        <a href="https://github.com/DhikaV0" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/AndhikaJud31563" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://instagram.com/AndhikaJud31563" class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Section: About Me -->
-  <section id="about" class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-24 gap-10 py-20 bg-semidark scroll-mt-40 shadow-section" data-aos="fade-right">
-    <div class="text-center md:text-left max-w-xl">
-      <h2 class="text-4xl font-bold mb-4">About Me</h2>
-      <p class="text-gray-300 mb-4">I'm a programmer that like to exploring various programming languages, but my favorites are PHP and JavaScript, maybe because I haven't found a language that suits me yet, so I've only chosen two. I tend to be a front-end developer because I'm not too good at tidying up systems.</p>
-      <p class="text-gray-300">Besides being a web developer, I also use C# to develop games in Unity. I also work as a modder for games like Minecraft, editing assets and adding new ones, then coding them with JavaScript.</p>
-    </div>
-    <div class="w-64 h-64 md:w-[30vw] md:h-[30vw] rounded-full overflow-hidden shadow-xl"><img src="Assets/Picture/Sensei - Blue Archive.jpg" alt=""></div>
-  </section>
-
-  <!-- Section: Skills -->
-  <section id="skills" class="min-h-screen flex flex-col items-center justify-center px-6 md:px-24 gap-10 py-20 bg-primary scroll-mt-40 shadow-section" data-aos="fade-left">
-  <h2 class="text-4xl font-bold text-white mb-10 text-center">Skills</h2>
-
-  <!-- Filter Buttons -->
-  <div class="flex flex-wrap justify-center gap-3 mb-8">
-    <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm" data-filter="language">Languages</button>
-    <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm" data-filter="frameworks">Frameworks</button>
-    <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm" data-filter="frontend">Frontend</button>
-    <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm" data-filter="database">Database</button>
-    <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm" data-filter="tools">Tools</button>
-  </div>
-
-  <!-- Skill Icons Grid -->
-  <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 mx-auto w-full max-w-6xl justify-items-center">
-
-  <!-- Language -->
-    <div class="skill-icon group relative flex items-center justify-center" data-category="language">
-      <img src="Assets/Icon/Java.svg" alt="Java" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        Java
-      </span>
-    </div>
-
-    <div class="skill-icon group relative flex items-center justify-center" data-category="language">
-      <img src="Assets/Icon/JS.svg" alt="JavaScript" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        JavaScript
-      </span>
-    </div>
-
-    <div class="skill-icon group relative flex items-center justify-center" data-category="language">
-      <img src="Assets/Icon/PHP.svg" alt="PHP" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        PHP
-      </span>
-    </div>
-
-  <!-- Frameworks -->
-    <div class="skill-icon group relative flex items-center justify-center" data-category="frameworks">
-      <img src="Assets/Icon/Laravel.svg" alt="Laravel" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        Laravel
-      </span>
-    </div>
-
-  <!-- Frontend -->
-    <div class="skill-icon group relative flex items-center justify-center" data-category="frontend">
-      <img src="Assets/Icon/CSS.svg" alt="CSS" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        CSS
-      </span>
-    </div>
-
-    <div class="skill-icon group relative flex items-center justify-center" data-category="frontend">
-      <img src="Assets/Icon/HTML5.svg" alt="HTML5" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        HTML5
-      </span>
-    </div>
-
-    <div class="skill-icon group relative flex items-center justify-center" data-category="frontend">
-      <img src="Assets/Icon/Tailwind.svg" alt="Tailwind CSS" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        Tailwind CSS
-      </span>
-    </div>
-
-  <!-- Database -->
-    <div class="skill-icon group relative flex items-center justify-center" data-category="database">
-      <img src="Assets/Icon/MySql.svg" alt="MySQL" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        MySQL
-      </span>
-    </div>
-
-  <!-- Tools -->
-    <div class="skill-icon group relative flex items-center justify-center" data-category="tools">
-      <img src="Assets/Icon/Github.svg" alt="GitHub" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        GitHub
-      </span>
-    </div>
-
-    <div class="skill-icon group relative flex items-center justify-center" data-category="tools">
-      <img src="Assets/Icon/Git.svg" alt="Git" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        Git
-      </span>
-    </div>
-
-    <div class="skill-icon group relative flex items-center justify-center" data-category="tools">
-      <img src="Assets/Icon/Unity.svg" alt="Unity" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        Unity
-      </span>
-    </div>
-    
-    <div class="skill-icon group relative flex items-center justify-center" data-category="tools">
-      <img src="Assets/Icon/IntelliJ_IDEA_Icon.svg.svg" alt="IntelliJ IDEA" class="w-16 h-16 object-contain hover:scale-110 transition duration-300">
-      <span class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300">
-        IntelliJ IDEA
-      </span>
-    </div>
-  </div>
-  </section>
-
-  <!-- Section: Project -->
-  <section id="Project" class="min-h-screen px-6 md:px-24 py-20 bg-[#1b1b54] text-white scroll-mt-40 shadow-section">
-    <h2 class="text-4xl font-bold text-center mb-12">Project</h2>
-
-    <div class="space-y-10">
-      <!-- Project Item 1 -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-        <!-- Text -->
-        <div class="flex-1 text-center md:text-left">
-          <h3 class="text-2xl font-semibold">Sarpras Web</h3>
-          <p class="text-gray-300 mt-2">Sarpras Web is a website for sorting items to be borrowed from the Sarpras Room. This website also provides a login feature, where user accounts are pre-created by the admin to facilitate data collection.</p>
-        </div>
-        <!-- Image -->
-        <div class="w-48 bg-gray-300 rounded-xl">
-          <img src="Assets/Picture/Screenshot 2025-07-21 193332.png" alt="">
-        </div>
-      </div>
-
-      <hr>
-
-      <!-- Project Item 2 -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-        <!-- Text -->
-        <div class="flex-1 text-center md:text-left">
-          <h3 class="text-2xl font-semibold">Snake Run</h3>
-          <p class="text-gray-300 mt-2">Snake Run is a remake of the original Snake from 1976 with new and modern Area and Textured snake, it's still 89% complete, but already playable.</p>
-        </div>
-        <!-- Image -->
-        <div class="w-48 h-48 rounded-xl">
-          <img src="Assets/Picture/SN.png" alt="">
-        </div>
-      </div>
-
-      <hr>
-
-      <!-- Project Item 3 -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-        <!-- Text -->
-        <div class="flex-1 text-center md:text-left">
-          <h3 class="text-2xl font-semibold">Dino-API</h3>
-          <p class="text-gray-300 mt-2">Dino-API is an API containing dinosaurs and other prehistoric animals from the past. This API consists of three eras: Triassic, Cretaceous, and Jurassic. For more information, click this <a href="https://github.com/DhikaV0/dino-API" style="color:deepskyblue;">link</a>.</p>
-        </div>
-        <!-- Image -->
-        <div class="w-48 h-48 bg-gray-300 rounded-xl">
-          <img src="Assets/Picture/T-Rex logo.png" alt="">
-        </div>
-      </div>
-
-      <h1 class="text-2xl font-semibold">More on my <a href="https://github.com/DhikaV0" style="color:deepskyblue;">Github !</a></h1>
-
-    </div>
-  </section>
-
-
-  <!-- Section: Contact -->
-  <section id="contact" class="min-h-screen px-6 md:px-24 py-20 bg-primary text-white scroll-mt-40 shadow-section" data-aos="fade-left">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
-
-      <!-- Form -->
-      <div class="w-full md:w-1/2">
-        <h2 class="text-4xl font-bold mb-6 text-center md:text-left">Contact Me!</h2>
-
-        <form action="https://formspree.io/f/xwpqvygy" method="POST" class="space-y-4">
-          <div class="flex items-center gap-3 border border-gray-600 rounded px-3 py-2">
-            <i class="fas fa-envelope text-gray-400"></i>
-            <input type="email" name="email" required placeholder="Email address" class="w-full bg-transparent outline-none text-white placeholder:text-gray-400">
-          </div>
-
-          <div class="flex items-center gap-3 border border-gray-600 rounded px-3 py-2">
-            <i class="fas fa-user text-gray-400"></i>
-            <input type="text" name="name" required placeholder="Your name" class="w-full bg-transparent outline-none text-white placeholder:text-gray-400">
-          </div>
-
-          <div class="flex gap-3 border border-gray-600 rounded px-3 py-2">
-            <i class="fas fa-comment-dots text-gray-400 pt-2"></i>
-            <textarea name="message" required placeholder="Write your message here..." rows="4" class="w-full bg-transparent outline-none text-white placeholder:text-gray-400 resize-none"></textarea>
-          </div>
-
-          <button type="submit" class="w-full bg-accent text-white py-2 rounded hover:bg-accent/90 transition">
-            Send Message <i class="fas fa-paper-plane ml-2"></i>
-          </button>
-        </form>
-      </div>
-
-    <!-- Contact Links -->
-      <div class="w-full md:w-1/2 flex flex-col items-center gap-6">
-        <p class="font-semibold text-lg text-center">Or you can find me here!</p>
-
-        <div class="flex justify-center gap-5 text-2xl">
-          <a href="https://github.com/DhikaV0" class="hover:text-accent"><i class="fab fa-github"></i></a>
-          <a href="https://x.com/AndhikaJud31563" class="hover:text-accent"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://www.instagram.com/dhik_dihk/" class="hover:text-accent"><i class="fab fa-instagram"></i></a>
-        </div>
-
-        <div class="w-full space-y-3">
-          <div class="flex items-center gap-4 p-3 border border-gray-600 rounded-md">
-            <i class="fas fa-envelope bg-blue-600 text-white p-2 rounded"></i>
-            <div>
-              <p class="text-sm text-gray-400">Email</p>
-              <p class="text-white">judhapratamaa@gmail.com</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-4 p-3 border border-gray-600 rounded-md">
-            <i class="fab fa-discord bg-indigo-600 text-white p-2 rounded"></i>
-            <div>
-              <p class="text-sm text-gray-400">Discord</p>
-              <p class="text-white">dhika_desu</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-semidark py-6 text-center text-gray-400 text-sm">
-  &copy; 2025 DhikaV0.
-  </footer>
-
-  <!-- Typing JS -->
-  <script>
-    const words = ["Web Developer", "Frontend Developer", "Indie Game Developer", "Modder"];
-    let i = 0;
-    let typingElement = document.getElementById("typing");
-    let currentText = "";
-    let isDeleting = false;
-
-    function typeEffect() {
-      const word = words[i % words.length];
-      currentText = isDeleting ? word.substring(0, currentText.length - 1) : word.substring(0, currentText.length + 1);
-      typingElement.innerHTML = currentText + '<span class="border-r-2 border-accent animate-pulse">&nbsp;</span>';
-
-      let delay = isDeleting ? 50 : 100;
-      if (!isDeleting && currentText === word) {
-        delay = 1500; isDeleting = true;
-      } else if (isDeleting && currentText === "") {
-        isDeleting = false; i++; delay = 300;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andhika's Portfolio</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 5px;
       }
 
-      setTimeout(typeEffect, delay);
-    }
-    document.addEventListener("DOMContentLoaded", typeEffect);
-  </script>
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+      ::-webkit-scrollbar-thumb {
+        background-color: #535c91;
+        border-radius: 9999px;
+      }
 
-  <!-- Filter Script -->
-  <script>
-  const buttons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.skill-icon');
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #9290c3;
+      }
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
+      body {
+        scrollbar-width: thin;
+        scrollbar-color: #535c91 transparent;
+        overflow-x: hidden;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#070F2B",
+              semidark: "#1B1A55",
+              accent: "#9290C3",
+              highlight: "#535C91",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            boxShadow: {
+              section: "inset 0 -20px 30px -10px rgba(0,0,0,0.5)",
+            },
+          },
+        },
+      };
+    </script>
 
-      // Toggle active button style
-      buttons.forEach(b => b.classList.remove('bg-highlight', 'text-white'));
-      btn.classList.add('bg-highlight', 'text-white');
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
-      // Filter skill icons
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        if (filter === '' || category === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tah Logo -->
+    <link
+      rel="icon"
+      href="Assets/Picture/Sensei - Blue Archive.jpg"
+      type="image/png"
+    />
+  </head>
+  <body class="bg-primary text-white font-poppins">
+    <!-- Header -->
+    <header
+      class="fixed top-0 w-full z-50 backdrop-blur-sm bg-semidark/80 shadow-md"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-bold text-accent">Andhika</h1>
+        <nav class="flex space-x-6 text-lg">
+          <a href="#home" class="hover:text-highlight">Home</a>
+          <a href="#about" class="hover:text-highlight">About</a>
+          <a href="#skills" class="hover:text-highlight">Skills</a>
+          <a href="#project" class="hover:text-highlight">Project</a>
+          <a href="#contact" class="hover:text-highlight">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-24 gap-10 pt-32 md:pt-10 scroll-mt-40 shadow-section"
+      data-aos="fade-up"
+    >
+      <div
+        class="w-64 h-64 md:w-[30vw] md:h-[30vw] rounded-full overflow-hidden shadow-xl"
+      >
+        <img
+          src="Assets/Picture/Hoshimi Miyabi _ ZZZ.jpg"
+          alt="Profile"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="text-center md:text-left max-w-xl">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+          Hi, I'm <span class="text-accent">Andhika</span>
+        </h1>
+        <h3 class="text-2xl md:text-4xl font-bold typing-text mt-2">
+          I'm a <span class="text-accent" id="typing"></span>
+        </h3>
+        <p class="mt-4 text-sm md:text-base text-gray-300">
+          Im Andhika Judha Pratama, you can call me Dhika.
+        </p>
+
+        <div class="flex justify-center md:justify-start space-x-4 mt-6">
+          <a
+            href="https://github.com/DhikaV0"
+            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://x.com/AndhikaJud31563"
+            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition"
+            ><i class="fab fa-x-twitter"></i
+          ></a>
+          <a
+            href="https://instagram.com/AndhikaJud31563"
+            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: About Me -->
+    <section
+      id="about"
+      class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-24 gap-10 py-20 bg-semidark scroll-mt-40 shadow-section"
+      data-aos="fade-right"
+    >
+      <div class="text-center md:text-left max-w-xl">
+        <h2 class="text-4xl font-bold mb-4">About Me</h2>
+        <p class="text-gray-300 mb-4">
+          I'm a programmer that like to exploring various programming languages,
+          but my favorites are PHP and JavaScript, maybe because I haven't found
+          a language that suits me yet, so I've only chosen two. I tend to be a
+          front-end developer because I'm not too good at tidying up systems.
+        </p>
+        <p class="text-gray-300">
+          Besides being a web developer, I also use C# to develop games in
+          Unity. I also work as a modder for games like Minecraft, editing
+          assets and adding new ones, then coding them with JavaScript.
+        </p>
+      </div>
+      <div
+        class="w-64 h-64 md:w-[30vw] md:h-[30vw] rounded-full overflow-hidden shadow-xl"
+      >
+        <img src="Assets/Picture/Sensei - Blue Archive.jpg" alt="" />
+      </div>
+    </section>
+
+    <!-- Section: Skills -->
+    <section
+      id="skills"
+      class="min-h-screen flex flex-col items-center justify-center px-6 md:px-24 gap-10 py-20 bg-primary scroll-mt-40 shadow-section"
+      data-aos="fade-left"
+    >
+      <h2 class="text-4xl font-bold text-white mb-10 text-center">Skills</h2>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <button
+          class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm"
+          data-filter="language"
+        >
+          Languages
+        </button>
+        <button
+          class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm"
+          data-filter="frameworks"
+        >
+          Frameworks
+        </button>
+        <button
+          class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm"
+          data-filter="frontend"
+        >
+          Frontend
+        </button>
+        <button
+          class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm"
+          data-filter="database"
+        >
+          Database
+        </button>
+        <button
+          class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm"
+          data-filter="tools"
+        >
+          Tools
+        </button>
+      </div>
+
+      <!-- Skill Icons Grid -->
+      <div
+        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 mx-auto w-full max-w-6xl justify-items-center"
+      >
+        <!-- Language -->
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="language"
+        >
+          <img
+            src="Assets/Icon/Java.svg"
+            alt="Java"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            Java
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="language"
+        >
+          <img
+            src="Assets/Icon/JS.svg"
+            alt="JavaScript"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            JavaScript
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="language"
+        >
+          <img
+            src="Assets/Icon/PHP.svg"
+            alt="PHP"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            PHP
+          </span>
+        </div>
+
+        <!-- Frameworks -->
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="frameworks"
+        >
+          <img
+            src="Assets/Icon/Laravel.svg"
+            alt="Laravel"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            Laravel
+          </span>
+        </div>
+
+        <!-- Frontend -->
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="frontend"
+        >
+          <img
+            src="Assets/Icon/CSS.svg"
+            alt="CSS"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            CSS
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="frontend"
+        >
+          <img
+            src="Assets/Icon/HTML5.svg"
+            alt="HTML5"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            HTML5
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="frontend"
+        >
+          <img
+            src="Assets/Icon/Tailwind.svg"
+            alt="Tailwind CSS"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            Tailwind CSS
+          </span>
+        </div>
+
+        <!-- Database -->
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="database"
+        >
+          <img
+            src="Assets/Icon/MySql.svg"
+            alt="MySQL"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            MySQL
+          </span>
+        </div>
+
+        <!-- Tools -->
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="tools"
+        >
+          <img
+            src="Assets/Icon/Github.svg"
+            alt="GitHub"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            GitHub
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="tools"
+        >
+          <img
+            src="Assets/Icon/Git.svg"
+            alt="Git"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            Git
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="tools"
+        >
+          <img
+            src="Assets/Icon/Unity.svg"
+            alt="Unity"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            Unity
+          </span>
+        </div>
+
+        <div
+          class="skill-icon group relative flex items-center justify-center"
+          data-category="tools"
+        >
+          <img
+            src="Assets/Icon/IntelliJ_IDEA_Icon.svg.svg"
+            alt="IntelliJ IDEA"
+            class="w-16 h-16 object-contain hover:scale-110 transition duration-300"
+          />
+          <span
+            class="absolute bottom-[-30px] bg-semidark text-accent text-xs font-medium px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300"
+          >
+            IntelliJ IDEA
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Project -->
+    <section
+      id="project"
+      class="min-h-screen px-6 md:px-24 py-20 bg-[#1b1b54] text-white scroll-mt-40 shadow-section"
+    >
+      <h2 class="text-4xl font-bold text-center mb-12">Project</h2>
+
+      <div class="space-y-10">
+        <!-- Project Item 1 -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <!-- Text -->
+          <div class="flex-1 text-center md:text-left">
+            <h3 class="text-2xl font-semibold">Sarpras Web</h3>
+            <p class="text-gray-300 mt-2">
+              Sarpras Web is a website for sorting items to be borrowed from the
+              Sarpras Room. This website also provides a login feature, where
+              user accounts are pre-created by the admin to facilitate data
+              collection.
+            </p>
+          </div>
+          <!-- Image -->
+          <div class="w-48 bg-gray-300 rounded-xl">
+            <img src="Assets/Picture/Screenshot 2025-07-21 193332.png" alt="" />
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- Project Item 2 -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <!-- Text -->
+          <div class="flex-1 text-center md:text-left">
+            <h3 class="text-2xl font-semibold">Snake Run</h3>
+            <p class="text-gray-300 mt-2">
+              Snake Run is a remake of the original Snake from 1976 with new and
+              modern Area and Textured snake, it's still 89% complete, but
+              already playable.
+            </p>
+          </div>
+          <!-- Image -->
+          <div class="w-48 h-48 rounded-xl">
+            <img src="Assets/Picture/SN.png" alt="" />
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- Project Item 3 -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <!-- Text -->
+          <div class="flex-1 text-center md:text-left">
+            <h3 class="text-2xl font-semibold">Dino-API</h3>
+            <p class="text-gray-300 mt-2">
+              Dino-API is an API containing dinosaurs and other prehistoric
+              animals from the past. This API consists of three eras: Triassic,
+              Cretaceous, and Jurassic. For more information, click this
+              <a
+                href="https://github.com/DhikaV0/dino-API"
+                style="color: deepskyblue"
+                >link</a
+              >.
+            </p>
+          </div>
+          <!-- Image -->
+          <div class="w-48 h-48 bg-gray-300 rounded-xl">
+            <img src="Assets/Picture/T-Rex logo.png" alt="" />
+          </div>
+        </div>
+
+        <h1 class="text-2xl font-semibold">
+          More on my
+          <a href="https://github.com/DhikaV0" style="color: deepskyblue"
+            >Github !</a
+          >
+        </h1>
+      </div>
+    </section>
+
+    <!-- Section: Contact -->
+    <section
+      id="contact"
+      class="min-h-screen px-6 md:px-24 py-20 bg-primary text-white scroll-mt-40 shadow-section"
+      data-aos="fade-left"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-10"
+      >
+        <!-- Form -->
+        <div class="w-full md:w-1/2">
+          <h2 class="text-4xl font-bold mb-6 text-center md:text-left">
+            Contact Me!
+          </h2>
+
+          <form
+            action="https://formspree.io/f/xwpqvygy"
+            method="POST"
+            class="space-y-4"
+          >
+            <div
+              class="flex items-center gap-3 border border-gray-600 rounded px-3 py-2"
+            >
+              <i class="fas fa-envelope text-gray-400"></i>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email address"
+                class="w-full bg-transparent outline-none text-white placeholder:text-gray-400"
+              />
+            </div>
+
+            <div
+              class="flex items-center gap-3 border border-gray-600 rounded px-3 py-2"
+            >
+              <i class="fas fa-user text-gray-400"></i>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full bg-transparent outline-none text-white placeholder:text-gray-400"
+              />
+            </div>
+
+            <div class="flex gap-3 border border-gray-600 rounded px-3 py-2">
+              <i class="fas fa-comment-dots text-gray-400 pt-2"></i>
+              <textarea
+                name="message"
+                required
+                placeholder="Write your message here..."
+                rows="4"
+                class="w-full bg-transparent outline-none text-white placeholder:text-gray-400 resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-accent text-white py-2 rounded hover:bg-accent/90 transition"
+            >
+              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Links -->
+        <div class="w-full md:w-1/2 flex flex-col items-center gap-6">
+          <p class="font-semibold text-lg text-center">
+            Or you can find me here!
+          </p>
+
+          <div class="flex justify-center gap-5 text-2xl">
+            <a href="https://github.com/DhikaV0" class="hover:text-accent"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://x.com/AndhikaJud31563" class="hover:text-accent"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/dhik_dihk/"
+              class="hover:text-accent"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+
+          <div class="w-full space-y-3">
+            <div
+              class="flex items-center gap-4 p-3 border border-gray-600 rounded-md"
+            >
+              <i class="fas fa-envelope bg-blue-600 text-white p-2 rounded"></i>
+              <div>
+                <p class="text-sm text-gray-400">Email</p>
+                <p class="text-white">judhapratamaa@gmail.com</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-4 p-3 border border-gray-600 rounded-md"
+            >
+              <i
+                class="fab fa-discord bg-indigo-600 text-white p-2 rounded"
+              ></i>
+              <div>
+                <p class="text-sm text-gray-400">Discord</p>
+                <p class="text-white">dhika_desu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-semidark py-6 text-center text-gray-400 text-sm">
+      &copy; 2025 DhikaV0.
+    </footer>
+
+    <!-- Typing JS -->
+    <script>
+      const words = [
+        "Web Developer",
+        "Frontend Developer",
+        "Indie Game Developer",
+        "Modder",
+      ];
+      let i = 0;
+      let typingElement = document.getElementById("typing");
+      let currentText = "";
+      let isDeleting = false;
+
+      function typeEffect() {
+        const word = words[i % words.length];
+        currentText = isDeleting
+          ? word.substring(0, currentText.length - 1)
+          : word.substring(0, currentText.length + 1);
+        typingElement.innerHTML =
+          currentText +
+          '<span class="border-r-2 border-accent animate-pulse">&nbsp;</span>';
+
+        let delay = isDeleting ? 50 : 100;
+        if (!isDeleting && currentText === word) {
+          delay = 1500;
+          isDeleting = true;
+        } else if (isDeleting && currentText === "") {
+          isDeleting = false;
+          i++;
+          delay = 300;
         }
+
+        setTimeout(typeEffect, delay);
+      }
+      document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+
+    <!-- Filter Script -->
+    <script>
+      const buttons = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".skill-icon");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.dataset.filter;
+
+          // Toggle active button style
+          buttons.forEach((b) =>
+            b.classList.remove("bg-highlight", "text-white")
+          );
+          btn.classList.add("bg-highlight", "text-white");
+
+          // Filter skill icons
+          cards.forEach((card) => {
+            const category = card.dataset.category;
+            if (filter === "" || category === filter) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
