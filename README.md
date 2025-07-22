@@ -10,6 +10,9 @@ Welcome to my personal portfolio repository! This website showcases my skills in
 - Automatic dark mode (optional)
 - Built with HTML, Tailwind CSS, and pure JavaScript
 
+## 🚀 Preview
+[DhikaV0's](https://dhikav0.github.io/Portofolio/)
+
 ## 📦 Technologies Used
 
 - HTML5
