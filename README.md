@@ -11,7 +11,7 @@ Welcome to my personal portfolio repository! This website showcases my skills in
 - Built with HTML, Tailwind CSS, and pure JavaScript
 
 ## 🚀 Preview
-[DhikaV0's](https://dhikav0.github.io/Portofolio/)
+[DhikaV0's Portofolio](https://dhikav0.github.io/Portofolio/)
 
 ## 📦 Technologies Used
 
