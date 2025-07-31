@@ -4,75 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andhika's Portfolio</title>
-    <style>
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: #535c91;
-        border-radius: 9999px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background-color: #9290c3;
-      }
-
-      body {
-        scrollbar-width: thin;
-        scrollbar-color: #535c91 transparent;
-        overflow-x: hidden;
-      }
-      
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      /* Gradient background for sections */
-      .gradient-bg {
-        background: linear-gradient(135deg, #070F2B 0%, #1B1A55 100%);
-      }
-      
-      /* Glow effect for interactive elements */
-      .glow-on-hover {
-        transition: all 0.3s ease;
-      }
-      .glow-on-hover:hover {
-        box-shadow: 0 0 15px rgba(146, 144, 195, 0.6);
-      }
-      
-      /* Better image hover effects */
-      .img-hover-zoom {
-        transition: transform 0.5s ease;
-        overflow: hidden;
-      }
-      .img-hover-zoom:hover {
-        transform: scale(1.03);
-      }
-      
-      /* Animated underline for nav links */
-      .nav-link {
-        position: relative;
-      }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background-color: #9290C3;
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover::after {
-        width: 100%;
-      }
-    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -92,59 +23,84 @@
               card: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
             },
             animation: {
-              'float': 'float 6s ease-in-out infinite',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              float: "float 6s ease-in-out infinite",
             },
             keyframes: {
               float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-15px)' },
-              }
-            }
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-15px)" },
+              },
+            },
           },
         },
       };
     </script>
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-
-    <!-- AOS (Animate on Scroll) -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-    <!-- Tab Logo -->
-    <link rel="icon" href="Assets/Picture/Sensei - Blue Archive.jpg" type="image/png" class="rounded-full"/>
+    <link
+      rel="icon"
+      href="Assets/Picture/Sensei - Blue Archive.jpg"
+      type="image/png"
+      class="rounded-full"
+    />
   </head>
-  <body class="bg-primary text-white font-poppins">
-    <!-- Header -->
+  <body class="bg-primary text-white font-poppins overflow-x-hidden scrollbar-thin scrollbar-thumb-highlight scrollbar-track-transparent">
     <header
       class="fixed top-0 w-full z-50 backdrop-blur-sm bg-semidark/90 shadow-md transition-all duration-300"
     >
       <div
         class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
       >
-        <h1 class="text-2xl sm:text-3xl font-bold text-accent hover:text-highlight transition-colors">Andhika</h1>
+        <h1
+          class="text-2xl sm:text-3xl font-bold text-accent hover:text-highlight transition-colors"
+        >
+          Andhika
+        </h1>
         <nav class="flex space-x-4 sm:space-x-6 text-base sm:text-lg">
-          <a href="#home" class="nav-link hover:text-highlight">Home</a>
-          <a href="#about" class="nav-link hover:text-highlight">About</a>
-          <a href="#skills" class="nav-link hover:text-highlight">Skills</a>
-          <a href="#project" class="nav-link hover:text-highlight">Projects</a>
-          <a href="#contact" class="nav-link hover:text-highlight">Contact</a>
+          <a
+            href="#home"
+            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
+          >
+            Home
+          </a>
+          <a
+            href="#about"
+            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+          <a
+            href="#skills"
+            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
+          >
+            Skills
+          </a>
+          <a
+            href="#project"
+            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
+          >
+            Projects
+          </a>
+          <a
+            href="#contact"
+            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
         </nav>
       </div>
     </header>
 
-    <!-- Hero Section -->
     <section
       id="home"
-      class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 pt-32 md:pt-20 scroll-mt-20 shadow-section gradient-bg"
+      class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 pt-32 md:pt-20 scroll-mt-20 shadow-section bg-gradient-to-br from-primary to-semidark"
       data-aos="fade-up"
     >
       <div
-        class="w-48 h-48 sm:w-64 sm:h-64 md:w-[28vw] md:h-[28vw] max-w-xs max-h-xs rounded-full overflow-hidden shadow-xl img-hover-zoom animation-float"
+        class="w-48 h-48 sm:w-64 sm:h-64 md:w-[28vw] md:h-[28vw] max-w-xs max-h-xs rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-103 animate-float"
       >
         <img
           src="Assets/Picture/Hoshimi Miyabi _ ZZZ.jpg"
@@ -153,63 +109,70 @@
         />
       </div>
       <div class="text-center md:text-left max-w-xl">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+        >
           Hi, I'm <span class="text-accent">Andhika</span>
         </h1>
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold typing-text mt-2">
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mt-2">
           I'm a <span class="text-accent" id="typing"></span>
         </h3>
         <p class="mt-4 text-sm sm:text-base text-gray-300">
-          I'm Andhika Judha Pratama, you can call me Dhika. A passionate developer who loves creating digital experiences.
+          I'm Andhika Judha Pratama, you can call me Dhika. A passionate developer
+          who loves creating digital experiences.
         </p>
-
         <div class="flex justify-center md:justify-start space-x-4 mt-6">
           <a
             href="https://github.com/DhikaV0"
-            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition glow-on-hover"
+            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             aria-label="GitHub"
             ><i class="fab fa-github"></i
           ></a>
           <a
             href="https://x.com/AndhikaJud31563"
-            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition glow-on-hover"
+            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             aria-label="Twitter"
             ><i class="fab fa-x-twitter"></i
           ></a>
           <a
             href="https://instagram.com/AndhikaJud31563"
-            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition glow-on-hover"
+            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             aria-label="Instagram"
             ><i class="fab fa-instagram"></i
           ></a>
         </div>
-        
-        <a href="#about" class="inline-block mt-8 px-6 py-2 bg-accent text-primary rounded-lg font-medium hover:bg-highlight transition-all duration-300 glow-on-hover">
+        <a
+          href="#about"
+          class="inline-block mt-8 px-6 py-2 bg-accent text-primary rounded-lg font-medium hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
+        >
           Explore More <i class="fas fa-arrow-down ml-2"></i>
         </a>
       </div>
     </section>
 
-    <!-- Section: About Me -->
     <section
       id="about"
       class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 py-16 md:py-20 bg-semidark scroll-mt-20 shadow-section"
       data-aos="fade-right"
     >
       <div class="text-center md:text-left max-w-2xl">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6 relative inline-block">
-          <span class="relative">
-            About Me
-            <span class="absolute bottom-0 left-0 w-full h-1 bg-accent transform -translate-y-1"></span>
-          </span>
+        <h2
+          class="text-3xl sm:text-4xl font-bold mb-6 relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-accent after:-translate-y-1"
+        >
+          About Me
         </h2>
         <p class="text-gray-300 mb-4 text-sm sm:text-base leading-relaxed">
-          I'm a passionate programmer who enjoys exploring various programming languages. My current favorites are PHP and JavaScript, though I'm always open to discovering new languages that might suit my style better. I tend to specialize in front-end development as I love crafting beautiful, interactive user interfaces.
+          I'm a passionate programmer who enjoys exploring various programming
+          languages. My current favorites are PHP and JavaScript, though I'm
+          always open to discovering new languages that might suit my style
+          better. I specialize in front-end development, crafting beautiful,
+          interactive user interfaces.
         </p>
         <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-          Beyond web development, I also work with C# to develop games in Unity. Additionally, I create mods for games like Minecraft, where I edit assets, add new content, and implement functionality using JavaScript. This diverse experience allows me to approach problems from multiple perspectives.
+          Beyond web development, I work with C# to develop games in Unity and
+          create mods for games like Minecraft, editing assets and implementing
+          functionality using JavaScript.
         </p>
-        
         <div class="mt-8 grid grid-cols-2 gap-4 max-w-md mx-auto md:mx-0">
           <div class="bg-primary/50 p-4 rounded-lg">
             <h4 class="font-semibold text-accent">Experience</h4>
@@ -222,262 +185,244 @@
         </div>
       </div>
       <div
-        class="w-48 h-48 sm:w-64 sm:h-64 md:w-[28vw] md:h-[28vw] max-w-xs max-h-xs rounded-full overflow-hidden shadow-xl img-hover-zoom"
+        class="w-48 h-48 sm:w-64 sm:h-64 md:w-[28vw] md:h-[28vw] max-w-xs max-h-xs rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-103"
       >
-        <img src="Assets/Picture/Sensei - Blue Archive.jpg" alt="Andhika's Profile" class="w-full h-full object-cover" />
+        <img
+          src="Assets/Picture/Sensei - Blue Archive.jpg"
+          alt="Andhika's Profile"
+          class="w-full h-full object-cover"
+        />
       </div>
     </section>
 
-    <!-- Section: Skills -->
     <section
       id="skills"
-      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 shadow-section gradient-bg"
+      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 shadow-section bg-gradient-to-br from-primary to-semidark"
       data-aos="fade-left"
     >
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-12 text-center relative">
-          <span class="relative inline-block">
-            My Skills
-            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-accent"></span>
-          </span>
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center mb-12 relative after:content-[''] after:absolute after:w-3/4 after:h-1 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-accent"
+        >
+          My Skills
         </h2>
-
-        <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-10">
           <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 glow-on-hover active"
+            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)] active:bg-highlight active"
             data-filter="all"
           >
             All
           </button>
           <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 glow-on-hover"
+            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-filter="language"
           >
             Languages
           </button>
           <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 glow-on-hover"
+            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-filter="frameworks"
           >
             Frameworks
           </button>
           <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 glow-on-hover"
+            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-filter="frontend"
           >
             Frontend
           </button>
           <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 glow-on-hover"
+            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-filter="database"
           >
             Database
           </button>
           <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 glow-on-hover"
+            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-filter="tools"
           >
             Tools
           </button>
         </div>
-
-        <!-- Skill Icons Grid -->
         <div
           class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mx-auto w-full justify-items-center"
         >
-          <!-- Language -->
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="language"
           >
             <img
               src="Assets/Icon/Java.svg"
               alt="Java"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               Java
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="language"
           >
             <img
               src="Assets/Icon/JS.svg"
               alt="JavaScript"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               JavaScript
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="language"
           >
             <img
               src="Assets/Icon/PHP.svg"
               alt="PHP"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               PHP
             </span>
           </div>
-
-          <!-- Frameworks -->
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="frameworks"
           >
             <img
               src="Assets/Icon/Laravel.svg"
               alt="Laravel"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               Laravel
             </span>
           </div>
-
-          <!-- Frontend -->
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="frontend"
           >
             <img
               src="Assets/Icon/CSS.svg"
               alt="CSS"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               CSS
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="frontend"
           >
             <img
               src="Assets/Icon/HTML5.svg"
               alt="HTML5"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               HTML5
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="frontend"
           >
             <img
               src="Assets/Icon/Tailwind.svg"
               alt="Tailwind CSS"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               Tailwind CSS
             </span>
           </div>
-
-          <!-- Database -->
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="database"
           >
             <img
               src="Assets/Icon/MySql.svg"
               alt="MySQL"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               MySQL
             </span>
           </div>
-
-          <!-- Tools -->
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="tools"
           >
             <img
               src="Assets/Icon/Github.svg"
               alt="GitHub"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               GitHub
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="tools"
           >
             <img
               src="Assets/Icon/Git.svg"
               alt="Git"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               Git
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="tools"
           >
             <img
               src="Assets/Icon/Unity.svg"
               alt="Unity"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               Unity
             </span>
           </div>
-
           <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] glow-on-hover"
+            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-category="tools"
           >
             <img
               src="Assets/Icon/IntelliJ_IDEA_Icon.svg.svg"
               alt="IntelliJ IDEA"
-              class="w-16 h-16 object-contain transition duration-300 group-hover:scale-110"
+              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition duration-300"
+              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
               IntelliJ IDEA
             </span>
@@ -486,81 +431,119 @@
       </div>
     </section>
 
-    <!-- Section: Project -->
     <section
       id="project"
-      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-[#1b1b54] text-white scroll-mt-20 shadow-section"
+      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-[#1b1b54] scroll-mt-20 shadow-section"
     >
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 relative">
-          <span class="relative inline-block">
-            My Projects
-            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-accent"></span>
-          </span>
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center mb-12 relative after:content-[''] after:absolute after:w-3/4 after:h-1 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-accent"
+        >
+          My Projects
         </h2>
-
         <div class="space-y-12">
-          <!-- Project Item 1 -->
           <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 glow-on-hover"
+            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-aos="fade-up"
           >
-            <!-- Text -->
             <div class="flex-1 text-center md:text-left order-2 md:order-1">
               <h3 class="text-2xl font-semibold text-accent">Sarpras Web</h3>
               <p class="text-gray-300 mt-4 leading-relaxed">
-                Sarpras Web is a comprehensive inventory management system for school facilities. It features item sorting, borrowing management, and a secure login system with admin-created user accounts for efficient data collection and tracking.
+                Sarpras Web is a comprehensive inventory management system for
+                school facilities, featuring item sorting, borrowing management,
+                and a secure login system.
               </p>
-              <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">PHP</span>
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">MySQL</span>
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">JavaScript</span>
+              <div
+                class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start"
+              >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >PHP</span
+                >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >MySQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >JavaScript</span
+                >
               </div>
             </div>
-            <!-- Image -->
-            <div class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 img-hover-zoom">
-              <img src="Assets/Picture/Screenshot 2025-07-21 193332.png" alt="Sarpras Web Project" class="w-full h-auto object-cover shadow-lg" />
+            <div
+              class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103"
+            >
+              <img
+                src="Assets/Picture/Screenshot 2025-07-21 193332.png"
+                alt="Sarpras Web Project"
+                class="w-full h-auto object-cover shadow-lg"
+              />
             </div>
           </div>
-
-          <!-- Project Item 2 -->
           <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 glow-on-hover"
+            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-aos="fade-up"
           >
-            <!-- Text -->
             <div class="flex-1 text-center md:text-left order-2 md:order-1">
               <h3 class="text-2xl font-semibold text-accent">Snake Run</h3>
               <p class="text-gray-300 mt-4 leading-relaxed">
-                Snake Run is a modern reimagining of the classic 1976 Snake game, featuring updated graphics, new environments, and textured snake designs. Currently 89% complete but fully playable, it offers a fresh take on the nostalgic gameplay.
+                Snake Run is a modern reimagining of the classic 1976 Snake game
+                with updated graphics and textured snake designs, 89% complete but
+                fully playable.
               </p>
-              <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">C#</span>
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">Unity</span>
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">Game Dev</span>
+              <div
+                class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start"
+              >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >C#</span
+                >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >Unity</span
+                >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >Game Dev</span
+                >
               </div>
             </div>
-            <!-- Image -->
-            <div class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 img-hover-zoom">
-              <img src="Assets/Picture/SN.png" alt="Snake Run Project" class="w-full h-auto object-cover shadow-lg" />
+            <div
+              class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103"
+            >
+              <img
+                src="Assets/Picture/SN.png"
+                alt="Snake Run Project"
+                class="w-full h-auto object-cover shadow-lg"
+              />
             </div>
           </div>
-
-          <!-- Project Item 3 -->
           <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 glow-on-hover"
+            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
             data-aos="fade-up"
           >
-            <!-- Text -->
             <div class="flex-1 text-center md:text-left order-2 md:order-1">
               <h3 class="text-2xl font-semibold text-accent">Dino-API</h3>
               <p class="text-gray-300 mt-4 leading-relaxed">
-                Dino-API is a comprehensive REST API featuring dinosaurs and other prehistoric creatures categorized by geological periods: Triassic, Cretaceous, and Jurassic. It serves as an educational resource for paleontology enthusiasts and developers alike.
+                Dino-API is a REST API featuring dinosaurs and prehistoric
+                creatures categorized by geological periods, serving as an
+                educational resource.
               </p>
-              <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">JavaScript</span>
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">Node.js</span>
-                <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">REST API</span>
+              <div
+                class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start"
+              >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
+                  >REST API</span
+                >
               </div>
               <a
                 href="https://github.com/DhikaV0/dino-API"
@@ -569,16 +552,23 @@
                 View on GitHub <i class="fas fa-external-link-alt ml-1"></i>
               </a>
             </div>
-            <!-- Image -->
-            <div class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 img-hover-zoom">
-              <img src="Assets/Picture/T-Rex logo.png" alt="Dino-API Project" class="w-full h-auto object-cover shadow-lg" />
+            <div
+              class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103"
+            >
+              <img
+                src="Assets/Picture/T-Rex logo.png"
+                alt="Dino-API Project"
+                class="w-full h-auto object-cover shadow-lg"
+              />
             </div>
           </div>
-
           <div class="text-center mt-10" data-aos="fade-up">
             <h3 class="text-2xl font-semibold">
               Discover more on my
-              <a href="https://github.com/DhikaV0" class="text-accent hover:text-highlight transition-colors underline underline-offset-4">
+              <a
+                href="https://github.com/DhikaV0"
+                class="text-accent hover:text-highlight transition-colors underline underline-offset-4"
+              >
                 GitHub!
               </a>
             </h3>
@@ -587,30 +577,20 @@
       </div>
     </section>
 
-    <!-- Section: Contact -->
     <section
       id="contact"
-      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary text-white scroll-mt-20 shadow-section gradient-bg"
+      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 shadow-section bg-gradient-to-br from-primary to-semidark"
       data-aos="fade-left"
     >
       <div class="max-w-6xl mx-auto">
-        <div
-          class="flex flex-col md:flex-row items-center justify-between gap-10"
-        >
-          <!-- Form -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
           <div class="w-full md:w-1/2">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6 relative inline-block">
-              <span class="relative">
-                Contact Me!
-                <span class="absolute bottom-0 left-0 w-full h-1 bg-accent transform -translate-y-1"></span>
-              </span>
-            </h2>
-
-            <form
-              action="https://formspree.io/f/xwpqvygy"
-              method="POST"
-              class="space-y-4"
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-6 relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-accent after:-translate-y-1"
             >
+              Contact Me!
+            </h2>
+            <form action="https://formspree.io/f/xwpqvygy" method="POST" class="space-y-4">
               <div
                 class="flex items-center gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300"
               >
@@ -623,7 +603,6 @@
                   class="w-full bg-transparent outline-none text-white placeholder:text-gray-400"
                 />
               </div>
-
               <div
                 class="flex items-center gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300"
               >
@@ -636,8 +615,9 @@
                   class="w-full bg-transparent outline-none text-white placeholder:text-gray-400"
                 />
               </div>
-
-              <div class="flex gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300">
+              <div
+                class="flex gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300"
+              >
                 <i class="fas fa-comment-dots text-gray-400 pt-2"></i>
                 <textarea
                   name="message"
@@ -647,63 +627,65 @@
                   class="w-full bg-transparent outline-none text-white placeholder:text-gray-400 resize-none"
                 ></textarea>
               </div>
-
               <button
                 type="submit"
-                class="w-full bg-accent text-primary font-medium py-3 rounded-lg hover:bg-highlight transition-all duration-300 flex items-center justify-center gap-2 glow-on-hover"
+                class="w-full bg-accent text-primary font-medium py-3 rounded-lg hover:bg-highlight transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
               >
                 Send Message <i class="fas fa-paper-plane"></i>
               </button>
             </form>
           </div>
-
-          <!-- Contact Links -->
           <div class="w-full md:w-1/2 flex flex-col items-center gap-8">
             <p class="font-semibold text-lg sm:text-xl text-center">
               Or you can find me here!
             </p>
-
             <div class="flex justify-center gap-5 text-2xl">
-              <a 
-                href="https://github.com/DhikaV0" 
-                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 glow-on-hover"
+              <a
+                href="https://github.com/DhikaV0"
+                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
                 aria-label="GitHub"
               >
                 <i class="fab fa-github"></i>
               </a>
-              <a 
-                href="https://x.com/AndhikaJud31563" 
-                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 glow-on-hover"
+              <a
+                href="https://x.com/AndhikaJud31563"
+                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
                 aria-label="Twitter"
               >
                 <i class="fab fa-x-twitter"></i>
               </a>
-              <a 
-                href="https://www.instagram.com/dhik_dihk/" 
-                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 glow-on-hover"
+              <a
+                href="https://www.instagram.com/dhik_dihk/"
+                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
                 aria-label="Instagram"
               >
                 <i class="fab fa-instagram"></i>
               </a>
             </div>
-
             <div class="w-full space-y-4">
               <div
                 class="flex items-center gap-4 p-4 border border-gray-600 rounded-lg hover:border-accent transition-all duration-300"
               >
-                <i class="fas fa-envelope bg-blue-600 text-white p-3 rounded-full"></i>
+                <i
+                  class="fas fa-envelope bg-blue-600 text-white p-3 rounded-full"
+                ></i>
                 <div>
                   <p class="text-sm text-gray-400">Email</p>
-                  <p class="text-white hover:text-accent transition-colors">
-                    <a href="mailto:judhapratamaa@gmail.com">judhapratamaa@gmail.com</a>
+                  <p
+                    class="text-white hover:text-accent transition-colors"
+                  >
+                    <a href="mailto:judhapratamaa@gmail.com"
+                      >judhapratamaa@gmail.com</a
+                    >
                   </p>
                 </div>
               </div>
-
               <div
                 class="flex items-center gap-4 p-4 border border-gray-600 rounded-lg hover:border-accent transition-all duration-300"
               >
-                <i class="fab fa-discord bg-indigo-600 text-white p-3 rounded-full"></i>
+                <i
+                  class="fab fa-discord bg-indigo-600 text-white p-3 rounded-full"
+                ></i>
                 <div>
                   <p class="text-sm text-gray-400">Discord</p>
                   <p class="text-white">dhika_desu</p>
@@ -718,16 +700,22 @@
     <footer class="bg-semidark py-6 text-center text-gray-400 text-sm">
       <div class="container mx-auto px-6">
         <p>&copy; 2025 Andhika Judha Pratama. All rights reserved.</p>
-        <p class="mt-2">Made with <i class="fas fa-heart text-red-500"></i> and lots of <i class="fas fa-coffee text-amber-600"></i></p>
+        <p class="mt-2">
+          Made with
+          <i class="fas fa-heart text-red-500"></i> and lots of
+          <i class="fas fa-coffee text-amber-600"></i>
+        </p>
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#home" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-primary rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-highlight shadow-lg" id="back-to-top">
+    <a
+      href="#home"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-primary rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-highlight shadow-lg"
+      id="back-to-top"
+    >
       <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Typing JS -->
     <script>
       const words = [
         "Web Developer",
@@ -764,36 +752,32 @@
       document.addEventListener("DOMContentLoaded", typeEffect);
     </script>
 
-    <!-- AOS Script -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init({ 
-        duration: 1000, 
+      AOS.init({
+        duration: 1000,
         once: true,
         offset: 120,
-        easing: 'ease-out-quad'
+        easing: "ease-out-quad",
       });
     </script>
 
-    <!-- Filter Script -->
     <script>
       const buttons = document.querySelectorAll(".filter-btn");
       const cards = document.querySelectorAll(".skill-icon");
 
-      // Initialize with "All" filter active
-      document.querySelector('[data-filter="all"]').classList.add("bg-highlight", "text-white");
+      document
+        .querySelector('[data-filter="all"]')
+        .classList.add("bg-highlight", "text-white");
 
       buttons.forEach((btn) => {
         btn.addEventListener("click", () => {
           const filter = btn.dataset.filter;
-
-          // Toggle active button style
           buttons.forEach((b) =>
             b.classList.remove("bg-highlight", "text-white")
           );
           btn.classList.add("bg-highlight", "text-white");
 
-          // Filter skill icons
           cards.forEach((card) => {
             const category = card.dataset.category;
             if (filter === "all" || category === filter) {
@@ -811,18 +795,17 @@
         });
       });
     </script>
-    
-    <!-- Back to Top Button Script -->
+
     <script>
-      const backToTopButton = document.getElementById('back-to-top');
-      
-      window.addEventListener('scroll', () => {
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
         if (window.pageYOffset > 300) {
-          backToTopButton.classList.remove('opacity-0', 'invisible');
-          backToTopButton.classList.add('opacity-100', 'visible');
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
         } else {
-          backToTopButton.classList.remove('opacity-100', 'visible');
-          backToTopButton.classList.add('opacity-0', 'invisible');
+          backToTopButton.classList.remove("opacity-100", "visible");
+          backToTopButton.classList.add("opacity-0", "invisible");
         }
       });
     </script>
