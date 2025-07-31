@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
-            "request": "launch",
+            "type": "msedge",
+            "request": "attach",
             "name": "Open dashboard.html",
-            "file": "d:\\Project\\portofolio\\dashboard.html"
+            "url": "http://localhost:8080/index.html"
         }
     ]
 }
