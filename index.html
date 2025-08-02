@@ -48,51 +48,39 @@
     />
   </head>
   <body class="bg-primary text-white font-poppins overflow-x-hidden scrollbar-thin scrollbar-thumb-highlight scrollbar-track-transparent">
-    <header
-      class="fixed top-0 w-full z-50 backdrop-blur-sm bg-semidark/90 shadow-md transition-all duration-300"
-    >
-      <div
-        class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
-      >
-        <h1
-          class="text-2xl sm:text-3xl font-bold text-accent hover:text-highlight transition-colors"
-        >
-          Andhika
-        </h1>
-        <nav class="flex space-x-4 sm:space-x-6 text-base sm:text-lg">
-          <a
-            href="#home"
-            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
-          >
-            About
-          </a>
-          <a
-            href="#skills"
-            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
-          >
-            Skills
-          </a>
-          <a
-            href="#project"
-            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full"
-          >
-            Contact
-          </a>
+    <header class="flex items-center justify-between p-4 sm:px-6">
+      <h1
+        class="text-2xl sm:text-3xl font-bold text-accent hover:text-highlight transition-colors">
+        Andhika
+      </h1>
+    
+      <a href="#" class="text-xl font-bold text-white">Logo</a>
+    
+        <nav class="hidden sm:flex space-x-6 text-lg">
+          <a href="#home" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Home</a>
+          <a href="#about" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">About</a>
+          <a href="#skills" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Skills</a>
+          <a href="#project" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Projects</a>
+          <a href="#contact" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Contact</a>
         </nav>
-      </div>
+  
+      <button id="hamburger-btn" class="sm:hidden text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+  
     </header>
+
+  <nav id="mobile-menu" class="hidden sm:hidden bg-gray-800 absolute top-16 left-0 w-full text-center py-4">
+    <div class="flex flex-col space-y-4 text-base">
+      <a href="#home" class="hover:text-highlight">Home</a>
+      <a href="#about" class="hover:text-highlight">About</a>
+      <a href="#skills" class="hover:text-highlight">Skills</a>
+      <a href="#project" class="hover:text-highlight">Projects</a>
+      <a href="#contact" class="hover:text-highlight">Contact</a>
+    </div>
+  </nav>
 
     <!-- HOME SECTION -->
     <section
