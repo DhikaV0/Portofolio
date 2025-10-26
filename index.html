@@ -1,826 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andhika's Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
+        html { scroll-behavior: smooth; }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background: #9290C3; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .section-title::after {
+            content: ''; position: absolute; width: 100%; height: 1px; bottom: 0; left: 0;
+            background: #9290C3; transform: translateY(-1px);
+        }
+        .skill-card, .project-card { transition: all 0.3s; }
+        .skill-card:hover, .project-card:hover { box-shadow: 0 0 15px rgba(146,144,195,0.6); }
+        .social-icon { transition: all 0.3s; }
+        .social-icon:hover { box-shadow: 0 0 15px rgba(146,144,195,0.6); }
     </style>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#070F2B",
-              semidark: "#1B1A55",
-              accent: "#9290C3",
-              highlight: "#535C91",
-            },
-            fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
-            },
-            boxShadow: {
-              section: "inset 0 -20px 30px -10px rgba(0,0,0,0.5)",
-              card: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
-            },
-            animation: {
-              float: "float 6s ease-in-out infinite",
-            },
-            keyframes: {
-              float: {
-                "0%, 100%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-15px)" },
-              },
-            },
-          },
-        },
-      };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#070F2B", semidark: "#1B1A55",
+                        accent: "#9290C3", highlight: "#535C91",
+                    },
+                    fontFamily: { poppins: ["Poppins", "sans-serif"] },
+                    animation: { float: "float 6s ease-in-out infinite" },
+                    keyframes: {
+                        float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-15px)" } }
+                    },
+                }
+            }
+        };
     </script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link
-      rel="icon"
-      href="Assets/Picture/Sensei - Blue Archive.jpg"
-      type="image/png"
-      class="rounded-full"
-    />
-  </head>
-  <body class="bg-primary text-white font-poppins overflow-x-hidden scrollbar-track">
-    <header class="fixed z-10 w-full bg-slate-900/90 backdrop-blur-sm justify-between">
+</head>
+<body class="bg-primary text-white font-poppins overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed z-10 w-full bg-slate-900/90 backdrop-blur-sm">
         <div class="flex items-center justify-between p-4 max-w-6xl mx-auto">
-            <h1 class="text-2xl sm:text-3xl font-bold text-accent hover:text-highlight transition-colors">
-                Andhika
-            </h1>
-
+            <h1 class="text-2xl sm:text-3xl font-bold text-accent hover:text-highlight transition-colors">Andhika</h1>
             <nav class="hidden md:flex space-x-6 text-lg">
-                <a href="#home" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Home</a>
-                <a href="#about" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">About</a>
-                <a href="#skills" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Skills</a>
-                <a href="#project" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Projects</a>
-                <a href="#contact" class="relative hover:text-highlight after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-accent after:transition-width after:duration-300 hover:after:w-full">Contact</a>
+                <a href="#home" class="nav-link hover:text-highlight">Home</a>
+                <a href="#about" class="nav-link hover:text-highlight">About</a>
+                <a href="#skills" class="nav-link hover:text-highlight">Skills</a>
+                <a href="#project" class="nav-link hover:text-highlight">Projects</a>
+                <a href="#contact" class="nav-link hover:text-highlight">Contact</a>
             </nav>
-            
-            <!-- Mobile menu button (hidden on larger screens) -->
-              <button id="dropdown-toggle" class="md:hidden text-slate-300 hover:text-highlight">
+            <button id="dropdown-toggle" class="md:hidden text-slate-300 hover:text-highlight">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
-              </button>
-              <div id="dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-primary rounded-md shadow-lg py-1 z-20 top-0">
-                <a href="#home" class="block px-4 py-2 text-sm text-white hover:bg-highlight">Home</a>
-                <a href="#about" class="block px-4 py-2 text-sm text-white hover:bg-highlight">About</a>
-                <a href="#skills" class="block px-4 py-2 text-sm text-white hover:bg-highlight">Skills</a>
-                <a href="#project" class="block px-4 py-2 text-sm text-white hover:bg-highlight">Projects</a>
-                <a href="#contact" class="block px-4 py-2 text-sm text-white hover:bg-highlight">Contact</a>
-              </div>
+            </button>
+            <div id="dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-primary rounded-md shadow-lg py-1 z-20 top-0">
+                <a href="#home" class="block px-4 py-2 text-sm hover:bg-highlight">Home</a>
+                <a href="#about" class="block px-4 py-2 text-sm hover:bg-highlight">About</a>
+                <a href="#skills" class="block px-4 py-2 text-sm hover:bg-highlight">Skills</a>
+                <a href="#project" class="block px-4 py-2 text-sm hover:bg-highlight">Projects</a>
+                <a href="#contact" class="block px-4 py-2 text-sm hover:bg-highlight">Contact</a>
+            </div>
         </div>
     </header>
 
-    <!-- HOME SECTION -->
-    <section
-      id="home"
-      class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 pt-32 md:pt-20 scroll-mt-20 shadow-section bg-gradient-to-br from-primary to-semidark"
-      data-aos="fade-up"
-    >
-
-    <div class="aspect-square w-48 sm:w-64 md:w-[28vw] max-w-[28vw] rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-103 animate-float">
-      <img src="Assets/Picture/Hoshimi Miyabi _ ZZZ.jpg" alt="Foto" class="w-full h-full object-cover" />
-    </div>
-
-      <div class="text-center md:text-left max-w-xl">
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-        >
-          Hi, I'm <span class="text-accent">Andhika</span>
-        </h1>
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mt-2">
-          I'm a <span class="text-accent" id="typing"></span>
-        </h3>
-        <p class="mt-4 text-sm sm:text-base text-gray-300">
-          I'm Andhika Judha Pratama, you can call me Dhika. A passionate developer
-          who loves creating digital experiences.
-        </p>
-        <div class="flex justify-center md:justify-start space-x-4 mt-6">
-          <a
-            href="https://github.com/DhikaV0"
-            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            aria-label="GitHub"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a
-            href="https://x.com/AndhikaJud31563"
-            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            aria-label="Twitter"
-            ><i class="fab fa-x-twitter"></i
-          ></a>
-          <a
-            href="https://instagram.com/dhik_dihk"
-            class="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            aria-label="Instagram"
-            ><i class="fab fa-instagram"></i
-          ></a>
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 pt-32 md:pt-20 scroll-mt-20 bg-gradient-to-br from-primary to-semidark" data-aos="fade-up">
+        <div class="aspect-square w-48 sm:w-64 md:w-[28vw] max-w-[28vw] rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-103 animate-float">
+            <img src="Assets/Picture/Hoshimi Miyabi _ ZZZ.jpg" alt="Foto" class="w-full h-full object-cover" />
         </div>
-        <a
-          href="#about"
-          class="inline-block mt-8 px-6 py-2 bg-accent text-primary rounded-lg font-medium hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-        >
-          Explore More <i class="fas fa-arrow-down ml-2"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section
-      id="about"
-      class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 py-16 md:py-20 bg-semidark scroll-mt-20 shadow-section"
-    >
-      <div class="text-center md:text-left max-w-2xl">
-        <h2
-          class="text-3xl sm:text-4xl font-bold mb-6 relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-accent after:-translate-y-1"
-        >
-          About Me
-        </h2>
-        <p class="text-gray-300 mb-4 text-sm sm:text-base leading-relaxed">
-          I'm a passionate programmer who enjoys exploring various programming
-          languages. My current favorites are PHP and JavaScript, though I'm
-          always open to discovering new languages that might suit my style
-          better. I specialize in front-end development, crafting beautiful,
-          interactive user interfaces.
-        </p>
-        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-          Beyond web development, I work with C# to develop games in Unity and
-          create mods for games like Minecraft, editing assets and implementing
-          functionality using JavaScript.
-        </p>
-        <div class="mt-8 grid grid-cols-2 gap-4 max-w-md mx-auto md:mx-0">
-          <div class="bg-primary/50 p-4 rounded-lg">
-            <h4 class="font-semibold text-accent">Experience</h4>
-            <p class="text-sm">2,5 Years</p>
-          </div>
-          <div class="bg-primary/50 p-4 rounded-lg">
-            <h4 class="font-semibold text-accent">Specialization</h4>
-            <p class="text-sm">Frontend & Game Dev</p>
-          </div>
-        </div>
-      </div>
-      <div class="aspect-square w-48 sm:w-64 md:w-[28vw] max-w-[28vw] rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-103 animate-float">
-        <img src="Assets/Picture/Sensei - Blue Archive.jpg" alt="" class="w-full h-full object-cover" />
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section
-      id="skills"
-      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 shadow-section bg-gradient-to-br from-primary to-semidark"
-    >
-      <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-3xl sm:text-4xl font-bold text-center mb-12 relative after:content-[''] after:absolute after:w-3/4 after:h-1 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-accent"
-        >
-          My Skills
-        </h2>
-        <div class="flex flex-wrap justify-center gap-3 mb-10">
-          <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)] active:bg-highlight active"
-            data-filter="all"
-          >
-            All
-          </button>
-          <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-filter="language"
-          >
-            Languages
-          </button>
-          <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-filter="frameworks"
-          >
-            Frameworks
-          </button>
-          <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-filter="frontend"
-          >
-            Frontend
-          </button>
-          <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-filter="database"
-          >
-            Database
-          </button>
-          <button
-            class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-filter="tools"
-          >
-            Tools
-          </button>
-        </div>
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mx-auto w-full justify-items-center"
-        >
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="language"
-          >
-            <img
-              src="Assets/Icon/Java.svg"
-              alt="Java"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Java
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="language"
-          >
-            <img
-              src="Assets/Icon/JS.svg"
-              alt="JavaScript"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              JavaScript
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="language"
-          >
-            <img
-              src="Assets/Icon/PHP.svg"
-              alt="PHP"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              PHP
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="frameworks"
-          >
-            <img
-              src="Assets/Icon/Next.js.svg"
-              alt="Laravel"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Next.js
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="frameworks"
-          >
-            <img
-              src="Assets/Icon/Laravel.svg"
-              alt="Laravel"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Laravel
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="frontend"
-          >
-            <img
-              src="Assets/Icon/CSS.svg"
-              alt="CSS"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              CSS
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="frontend"
-          >
-            <img
-              src="Assets/Icon/HTML5.svg"
-              alt="HTML5"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              HTML5
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="frontend"
-          >
-            <img
-              src="Assets/Icon/Tailwind.svg"
-              alt="Tailwind CSS"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Tailwind CSS
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="database"
-          >
-            <img
-              src="Assets/Icon/MySql.svg"
-              alt="MySQL"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              MySQL
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="tools"
-          >
-            <img
-              src="Assets/Icon/Github.svg"
-              alt="GitHub"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              GitHub
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="tools"
-          >
-            <img
-              src="Assets/Icon/Git.svg"
-              alt="Git"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Git
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="tools"
-          >
-            <img
-              src="Assets/Icon/Unity.svg"
-              alt="Unity"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Unity
-            </span>
-          </div>
-          <div
-            class="skill-icon group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark transition-all duration-300 w-full max-w-[150px] h-[150px] hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-category="tools"
-          >
-            <img
-              src="Assets/Icon/IntelliJ_IDEA_Icon.svg.svg"
-              alt="IntelliJ IDEA"
-              class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-            <span
-              class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              IntelliJ IDEA
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECT SECTION -->
-    <section
-      id="project"
-      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-[#1b1b54] scroll-mt-20 shadow-section"
-    >
-      <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-3xl sm:text-4xl font-bold text-center mb-12 relative after:content-[''] after:absolute after:w-3/4 after:h-1 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-accent"
-        >
-          My Projects
-        </h2>
-        <div class="space-y-12">
-          <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-aos="fade-up"
-          >
-            <div class="flex-1 text-center md:text-left order-2 md:order-1">
-              <h3 class="text-2xl font-semibold text-accent">Dino Era</h3>
-              <p class="text-gray-300 mt-4 leading-relaxed">
-                 website based on API
-                  Dino Era is a website featuring dinosaurs and
-                  other prehistoric animals from the past. The
-                  website consists of three eras: Triassic,
-                  Cretaceous, and Jurassic. The website is API
-                  based. 
-              </p>
-              <div
-                class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start"
-              >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >Node JS</span
-                >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >NextJS</span
-                >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >JavaScript</span
-                >
-              </div>
-              <a
-                href="https://dinoweb-two.vercel.app/"
-                class="inline-block mt-4 text-accent hover:text-highlight transition-colors"
-              >
-                Dino Era <i class="fas fa-external-link-alt ml-1"></i>
-              </a>
-            </div>
-            <div
-              class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103"
-            >
-              <img
-                src="Assets/Picture/Screenshot 2025-08-19 074414.png"
-                alt="Dino Era Project"
-                class="w-full h-auto object-cover shadow-lg"
-              />
-            </div>
-          </div>
-          <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-aos="fade-up"
-          >
-            <div class="flex-1 text-center md:text-left order-2 md:order-1">
-              <h3 class="text-2xl font-semibold text-accent">Snake Run</h3>
-              <p class="text-gray-300 mt-4 leading-relaxed">
-                Snake Run is a modern reimagining of the classic 1976 Snake game
-                with updated graphics and textured snake designs, 89% complete but
-                fully playable.
-              </p>
-              <div
-                class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start"
-              >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >C#</span
-                >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >Unity</span
-                >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >Game Dev</span
-                >
-              </div>
-            </div>
-            <div
-              class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103"
-            >
-              <img
-                src="Assets/Picture/SN.png"
-                alt="Snake Run Project"
-                class="w-full h-auto object-cover shadow-lg"
-              />
-            </div>
-          </div>
-          <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-            data-aos="fade-up"
-          >
-            <div class="flex-1 text-center md:text-left order-2 md:order-1">
-              <h3 class="text-2xl font-semibold text-accent">Dino-API</h3>
-              <p class="text-gray-300 mt-4 leading-relaxed">
-                Dino-API is an API that contains dinosaurs and
-                other prehistoric animals from the past. This API
-                consists of three eras, namely the Triassic,
-                Cretaceous, 
-                and Jurassic. 
-              </p>
-              <div
-                class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start"
-              >
-                <span
-                  class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs"
-                  >JSON</span
-                >
-              </div>
-              <a
-                href="https://github.com/DhikaV0/dino-API"
-                class="inline-block mt-4 text-accent hover:text-highlight transition-colors"
-              >
-                View on GitHub <i class="fas fa-external-link-alt ml-1"></i>
-              </a>
-            </div>
-            <div
-              class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103"
-            >
-              <img
-                src="Assets/Picture/T-Rex logo.png"
-                alt="Dino-API Project"
-                class="w-full h-auto object-cover shadow-lg"
-              />
-            </div>
-          </div>
-          <div class="text-center mt-10" data-aos="fade-up">
-            <h3 class="text-2xl font-semibold">
-              Discover more on my
-              <a
-                href="https://github.com/DhikaV0"
-                class="text-accent hover:text-highlight transition-colors underline underline-offset-4"
-              >
-                GitHub!
-              </a>
+        <div class="text-center md:text-left max-w-xl">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Hi, I'm <span class="text-accent">Andhika</span>
+            </h1>
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mt-2">
+                I'm a <span class="text-accent" id="typing"></span>
             </h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section
-      id="contact"
-      class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 shadow-section bg-gradient-to-br from-primary to-semidark"
-    >
-      <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
-          <div class="w-full md:w-1/2">
-            <h2
-              class="text-3xl sm:text-4xl font-bold mb-6 relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:bg-accent after:-translate-y-1"
-            >
-              Contact Me!
-            </h2>
-            <form action="https://formspree.io/f/xwpqvygy" method="POST" class="space-y-4">
-              <div
-                class="flex items-center gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300"
-              >
-                <i class="fas fa-envelope text-gray-400"></i>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Email address"
-                  class="w-full bg-transparent outline-none text-white placeholder:text-gray-400"
-                />
-              </div>
-              <div
-                class="flex items-center gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300"
-              >
-                <i class="fas fa-user text-gray-400"></i>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your name"
-                  class="w-full bg-transparent outline-none text-white placeholder:text-gray-400"
-                />
-              </div>
-              <div
-                class="flex gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300"
-              >
-                <i class="fas fa-comment-dots text-gray-400 pt-2"></i>
-                <textarea
-                  name="message"
-                  required
-                  placeholder="Write your message here..."
-                  rows="4"
-                  class="w-full bg-transparent outline-none text-white placeholder:text-gray-400 resize-none"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full bg-accent text-primary font-medium py-3 rounded-lg hover:bg-highlight transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-              >
-                Send Message <i class="fas fa-paper-plane"></i>
-              </button>
-            </form>
-          </div>
-          <div class="w-full md:w-1/2 flex flex-col items-center gap-8">
-            <p class="font-semibold text-lg sm:text-xl text-center">
-              Or you can find me here!
+            <p class="mt-4 text-sm sm:text-base text-gray-300">
+                I'm Andhika Judha Pratama, you can call me Dhika. A passionate developer who loves creating digital experiences.
             </p>
-            <div class="flex justify-center gap-5 text-2xl">
-              <a
-                href="https://github.com/DhikaV0"
-                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-                aria-label="GitHub"
-              >
-                <i class="fab fa-github"></i>
-              </a>
-              <a
-                href="https://x.com/AndhikaJud31563"
-                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-                aria-label="Twitter"
-              >
-                <i class="fab fa-x-twitter"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/dhik_dihk/"
-                class="w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent transition-all duration-300 hover:shadow-[0_0_15px_rgba(146,144,195,0.6)]"
-                aria-label="Instagram"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
+            <div class="flex justify-center md:justify-start space-x-4 mt-6">
+                <a href="https://github.com/DhikaV0" class="social-icon w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/AndhikaJud31563" class="social-icon w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/dhik_dihk" class="social-icon w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:bg-accent hover:text-primary" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="w-full space-y-4">
-              <div
-                class="flex items-center gap-4 p-4 border border-gray-600 rounded-lg hover:border-accent transition-all duration-300"
-              >
-                <i
-                  class="fas fa-envelope bg-blue-600 text-white p-3 rounded-full"
-                ></i>
-                <div>
-                  <p class="text-sm text-gray-400">Email</p>
-                  <p
-                    class="text-white hover:text-accent transition-colors"
-                  >
-                    <a href="mailto:judhapratamaa@gmail.com"
-                      >judhapratamaa@gmail.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-center gap-4 p-4 border border-gray-600 rounded-lg hover:border-accent transition-all duration-300"
-              >
-                <i
-                  class="fab fa-discord bg-indigo-600 text-white p-3 rounded-full"
-                ></i>
-                <div>
-                  <p class="text-sm text-gray-400">Discord</p>
-                  <p class="text-white">dhika_desu</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <a href="#about" class="social-icon inline-block mt-8 px-6 py-2 bg-accent text-primary rounded-lg font-medium hover:bg-highlight">
+                Explore More <i class="fas fa-arrow-down ml-2"></i>
+            </a>
         </div>
-      </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-12 lg:px-24 gap-8 md:gap-16 py-16 md:py-20 bg-semidark scroll-mt-20">
+        <div class="text-center md:text-left max-w-2xl">
+            <h2 class="section-title text-3xl sm:text-4xl font-bold mb-6 relative inline-block">About Me</h2>
+            <p class="text-gray-300 mb-4 text-sm sm:text-base leading-relaxed">
+                I'm a passionate programmer who enjoys exploring various programming languages. My current favorites are PHP and JavaScript, though I'm always open to discovering new languages that might suit my style better. I specialize in front-end development, crafting beautiful, interactive user interfaces.
+            </p>
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                Beyond web development, I work with C# to develop games in Unity and create mods for games like Minecraft, editing assets and implementing functionality using JavaScript.
+            </p>
+            <div class="mt-8 grid grid-cols-2 gap-4 max-w-md mx-auto md:mx-0">
+                <div class="bg-primary/50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent">Experience</h4>
+                    <p class="text-sm">2,5 Years</p>
+                </div>
+                <div class="bg-primary/50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent">Specialization</h4>
+                    <p class="text-sm">Frontend & Game Dev</p>
+                </div>
+            </div>
+        </div>
+        <div class="aspect-square w-48 sm:w-64 md:w-[28vw] max-w-[28vw] rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-103 animate-float">
+            <img src="Assets/Picture/Sensei - Blue Archive.jpg" alt="" class="w-full h-full object-cover" />
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 bg-gradient-to-br from-primary to-semidark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 relative after:content-[''] after:absolute after:w-3/4 after:h-1 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-accent">My Skills</h2>
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight active:bg-highlight" data-filter="all">All</button>
+                <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight" data-filter="language">Languages</button>
+                <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight" data-filter="frameworks">Frameworks</button>
+                <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight" data-filter="frontend">Frontend</button>
+                <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight" data-filter="database">Database</button>
+                <button class="filter-btn bg-semidark text-white px-4 py-2 rounded-lg text-sm hover:bg-highlight" data-filter="tools">Tools</button>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mx-auto w-full justify-items-center">
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="language">
+                    <img src="Assets/Icon/Java.svg" alt="Java" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Java</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="language">
+                    <img src="Assets/Icon/JS.svg" alt="JavaScript" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">JavaScript</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="language">
+                    <img src="Assets/Icon/PHP.svg" alt="PHP" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">PHP</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="frameworks">
+                    <img src="Assets/Icon/Next.js.svg" alt="Laravel" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Next.js</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="frameworks">
+                    <img src="Assets/Icon/Laravel.svg" alt="Laravel" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Laravel</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="frontend">
+                    <img src="Assets/Icon/CSS.svg" alt="CSS" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">CSS</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="frontend">
+                    <img src="Assets/Icon/HTML5.svg" alt="HTML5" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">HTML5</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="frontend">
+                    <img src="Assets/Icon/Tailwind.svg" alt="Tailwind CSS" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tailwind CSS</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="database">
+                    <img src="Assets/Icon/MySql.svg" alt="MySQL" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">MySQL</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="tools">
+                    <img src="Assets/Icon/Github.svg" alt="GitHub" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="tools">
+                    <img src="Assets/Icon/Git.svg" alt="Git" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Git</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="tools">
+                    <img src="Assets/Icon/Unity.svg" alt="Unity" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Unity</span>
+                </div>
+                <div class="skill-card group relative flex flex-col items-center justify-center p-4 rounded-lg bg-semidark/50 hover:bg-semidark w-full max-w-[150px] h-[150px]" data-category="tools">
+                    <img src="Assets/Icon/IntelliJ_IDEA_Icon.svg.svg" alt="IntelliJ IDEA" class="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110" />
+                    <span class="mt-3 text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">IntelliJ IDEA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-[#1b1b54] scroll-mt-20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 relative after:content-[''] after:absolute after:w-3/4 after:h-1 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-accent">My Projects</h2>
+            <div class="space-y-12">
+                <div class="project-card flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50" data-aos="fade-up">
+                    <div class="flex-1 text-center md:text-left order-2 md:order-1">
+                        <h3 class="text-2xl font-semibold text-accent">Dino Era</h3>
+                        <p class="text-gray-300 mt-4 leading-relaxed">
+                            Dino Era is a website featuring dinosaurs and other prehistoric animals from the past. The website consists of three eras: Triassic, Cretaceous, and Jurassic. The website is API based.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">Node JS</span>
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">NextJS</span>
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">JavaScript</span>
+                        </div>
+                        <a href="https://dinoweb-two.vercel.app/" class="inline-block mt-4 text-accent hover:text-highlight transition-colors">
+                            Dino Era <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103">
+                        <img src="Assets/Picture/Screenshot 2025-08-19 074414.png" alt="Dino Era Project" class="w-full h-auto object-cover shadow-lg" />
+                    </div>
+                </div>
+                <div class="project-card flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50" data-aos="fade-up">
+                    <div class="flex-1 text-center md:text-left order-2 md:order-1">
+                        <h3 class="text-2xl font-semibold text-accent">Snake Run</h3>
+                        <p class="text-gray-300 mt-4 leading-relaxed">
+                            Snake Run is a modern reimagining of the classic 1976 Snake game with updated graphics and textured snake designs, 89% complete but fully playable.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">C#</span>
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">Unity</span>
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">Game Dev</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103">
+                        <img src="Assets/Picture/SN.png" alt="Snake Run Project" class="w-full h-auto object-cover shadow-lg" />
+                    </div>
+                </div>
+                <div class="project-card flex flex-col md:flex-row justify-between items-center gap-8 p-6 rounded-xl bg-primary/30 hover:bg-primary/50" data-aos="fade-up">
+                    <div class="flex-1 text-center md:text-left order-2 md:order-1">
+                        <h3 class="text-2xl font-semibold text-accent">Dino-API</h3>
+                        <p class="text-gray-300 mt-4 leading-relaxed">
+                            Dino-API is an API that contains dinosaurs and other prehistoric animals from the past. This API consists of three eras, namely the Triassic, Cretaceous, and Jurassic.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-highlight/20 text-accent rounded-full text-xs">JSON</span>
+                        </div>
+                        <a href="https://github.com/DhikaV0/dino-API" class="inline-block mt-4 text-accent hover:text-highlight transition-colors">
+                            View on GitHub <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/3 rounded-xl overflow-hidden order-1 md:order-2 transition-transform duration-500 hover:scale-103">
+                        <img src="Assets/Picture/T-Rex logo.png" alt="Dino-API Project" class="w-full h-auto object-cover shadow-lg" />
+                    </div>
+                </div>
+                <div class="text-center mt-10" data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold">
+                        Discover more on my
+                        <a href="https://github.com/DhikaV0" class="text-accent hover:text-highlight transition-colors underline underline-offset-4">GitHub!</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen px-6 md:px-12 lg:px-24 py-16 md:py-20 bg-primary scroll-mt-20 bg-gradient-to-br from-primary to-semidark">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                <div class="w-full md:w-1/2">
+                    <h2 class="section-title text-3xl sm:text-4xl font-bold mb-6 relative inline-block">Contact Me!</h2>
+                    <form action="https://formspree.io/f/xwpqvygy" method="POST" class="space-y-4">
+                        <div class="flex items-center gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300">
+                            <i class="fas fa-envelope text-gray-400"></i>
+                            <input type="email" name="email" required placeholder="Email address" class="w-full bg-transparent outline-none text-white placeholder:text-gray-400" />
+                        </div>
+                        <div class="flex items-center gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300">
+                            <i class="fas fa-user text-gray-400"></i>
+                            <input type="text" name="name" required placeholder="Your name" class="w-full bg-transparent outline-none text-white placeholder:text-gray-400" />
+                        </div>
+                        <div class="flex gap-3 border border-gray-600 rounded-lg px-4 py-3 focus-within:border-accent transition-all duration-300">
+                            <i class="fas fa-comment-dots text-gray-400 pt-2"></i>
+                            <textarea name="message" required placeholder="Write your message here..." rows="4" class="w-full bg-transparent outline-none text-white placeholder:text-gray-400 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="social-icon w-full bg-accent text-primary font-medium py-3 rounded-lg hover:bg-highlight flex items-center justify-center gap-2">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col items-center gap-8">
+                    <p class="font-semibold text-lg sm:text-xl text-center">Or you can find me here!</p>
+                    <div class="flex justify-center gap-5 text-2xl">
+                        <a href="https://github.com/DhikaV0" class="social-icon w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/AndhikaJud31563" class="social-icon w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/dhik_dihk/" class="social-icon w-12 h-12 rounded-full bg-semidark flex items-center justify-center hover:bg-highlight hover:text-accent" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="w-full space-y-4">
+                        <div class="flex items-center gap-4 p-4 border border-gray-600 rounded-lg hover:border-accent transition-all duration-300">
+                            <i class="fas fa-envelope bg-blue-600 text-white p-3 rounded-full"></i>
+                            <div>
+                                <p class="text-sm text-gray-400">Email</p>
+                                <p class="text-white hover:text-accent transition-colors"><a href="mailto:judhapratamaa@gmail.com">judhapratamaa@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 border border-gray-600 rounded-lg hover:border-accent transition-all duration-300">
+                            <i class="fab fa-discord bg-indigo-600 text-white p-3 rounded-full"></i>
+                            <div>
+                                <p class="text-sm text-gray-400">Discord</p>
+                                <p class="text-white">dhika_desu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="bg-semidark py-6 text-center text-gray-400 text-sm">
-      <div class="container mx-auto px-6">
-        <p>&copy; 2025 Andhika Judha Pratama. All rights reserved.</p>
-        </p>
-      </div>
+        <div class="container mx-auto px-6">
+            <p>&copy; 2025 Andhika Judha Pratama. All rights reserved.</p>
+        </div>
     </footer>
 
-    <a
-      href="#home"
-      class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-primary rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-highlight shadow-lg"
-      id="back-to-top"
-    >
-      <i class="fas fa-arrow-up"></i>
+    <!-- Back to Top Button -->
+    <a href="#home" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-primary rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-highlight shadow-lg" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- SCRIPT -->
-    <script>
-      const words = [
-        "Frontend Developer",
-        "Indie Game Developer",
-        "Modder",
-      ];
-      let i = 0;
-      let typingElement = document.getElementById("typing");
-      let currentText = "";
-      let isDeleting = false;
-
-      function typeEffect() {
-        const word = words[i % words.length];
-        currentText = isDeleting
-          ? word.substring(0, currentText.length - 1)
-          : word.substring(0, currentText.length + 1);
-        typingElement.innerHTML =
-          currentText +
-          '<span class="border-r-2 border-accent animate-pulse">&nbsp;</span>';
-
-        let delay = isDeleting ? 50 : 100;
-        if (!isDeleting && currentText === word) {
-          delay = 1500;
-          isDeleting = true;
-        } else if (isDeleting && currentText === "") {
-          isDeleting = false;
-          i++;
-          delay = 300;
-        }
-
-        setTimeout(typeEffect, delay);
-      }
-      document.addEventListener("DOMContentLoaded", typeEffect);
-    </script>
-
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 120,
-        easing: "ease-out-quad",
-      });
-    </script>
+        // Typing Effect
+        const words = ["Frontend Developer", "Indie Game Developer", "Modder"];
+        let i = 0;
+        let typingElement = document.getElementById("typing");
+        let currentText = "";
+        let isDeleting = false;
 
-    <script>
-      const buttons = document.querySelectorAll(".filter-btn");
-      const cards = document.querySelectorAll(".skill-icon");
+        function typeEffect() {
+            const word = words[i % words.length];
+            currentText = isDeleting ? word.substring(0, currentText.length - 1) : word.substring(0, currentText.length + 1);
+            typingElement.innerHTML = currentText + '<span class="border-r-2 border-accent animate-pulse">&nbsp;</span>';
 
-      document
-        .querySelector('[data-filter="all"]')
-        .classList.add("bg-highlight", "text-white");
-
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const filter = btn.dataset.filter;
-          buttons.forEach((b) =>
-            b.classList.remove("bg-highlight", "text-white")
-          );
-          btn.classList.add("bg-highlight", "text-white");
-
-          cards.forEach((card) => {
-            const category = card.dataset.category;
-            if (filter === "all" || category === filter) {
-              card.classList.remove("hidden");
-              setTimeout(() => {
-                card.style.opacity = "1";
-              }, 50);
-            } else {
-              card.style.opacity = "0";
-              setTimeout(() => {
-                card.classList.add("hidden");
-              }, 300);
+            let delay = isDeleting ? 50 : 100;
+            if (!isDeleting && currentText === word) {
+                delay = 1500;
+                isDeleting = true;
+            } else if (isDeleting && currentText === "") {
+                isDeleting = false;
+                i++;
+                delay = 300;
             }
-          });
-        });
-      });
-    </script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const dropdownToggle = document.getElementById('dropdown-toggle');
-        const dropdownMenu = document.getElementById('dropdown-menu');
-      
-        dropdownToggle.addEventListener('click', function() {
-          dropdownMenu.classList.toggle('hidden');
-        });
-      
-        // Close the menu if the user clicks outside of it
-        document.addEventListener('click', function(event) {
-          if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.add('hidden');
-          }
-        });
-      });
-    </script>
-
-    <script>
-      const backToTopButton = document.getElementById("back-to-top");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.remove("opacity-0", "invisible");
-          backToTopButton.classList.add("opacity-100", "visible");
-        } else {
-          backToTopButton.classList.remove("opacity-100", "visible");
-          backToTopButton.classList.add("opacity-0", "invisible");
+            setTimeout(typeEffect, delay);
         }
-      });
+        document.addEventListener("DOMContentLoaded", typeEffect);
+
+        // AOS Initialization
+        AOS.init({ duration: 1000, once: true, offset: 120, easing: "ease-out-quad" });
+
+        // Skills Filter
+        const buttons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".skill-icon");
+
+        document.querySelector('[data-filter="all"]').classList.add("bg-highlight", "text-white");
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const filter = btn.dataset.filter;
+                buttons.forEach((b) => b.classList.remove("bg-highlight", "text-white"));
+                btn.classList.add("bg-highlight", "text-white");
+
+                cards.forEach((card) => {
+                    const category = card.dataset.category;
+                    if (filter === "all" || category === filter) {
+                        card.classList.remove("hidden");
+                        setTimeout(() => { card.style.opacity = "1"; }, 50);
+                    } else {
+                        card.style.opacity = "0";
+                        setTimeout(() => { card.classList.add("hidden"); }, 300);
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggle = document.getElementById('dropdown-toggle');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+
+            dropdownToggle.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove("opacity-0", "invisible");
+                backToTopButton.classList.add("opacity-100", "visible");
+            } else {
+                backToTopButton.classList.remove("opacity-100", "visible");
+                backToTopButton.classList.add("opacity-0", "invisible");
+            }
+        });
     </script>
-  </body>
+</body>
 </html>
