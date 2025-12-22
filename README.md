@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio repository! This website showcases my skills in web development, UI/UX design, and the projects I've worked on.
 
-## 🛠️ Features
+## Features
 
 - Responsive and clean design
 - Technology category filter (HTML, CSS, JavaScript, Framework, etc.)
@@ -10,16 +10,17 @@ Welcome to my personal portfolio repository! This website showcases my skills in
 - Automatic dark mode (optional)
 - Built with HTML, Tailwind CSS, and pure JavaScript
 
-## 📦 Technologies Used
+## Technologies Used
 
 - HTML5
 - Tailwind CSS
 - Vanilla JavaScript
-- FontAwesome / Custom Icons (if used)
+- FontAwesome
 
-## 📬 Contact
+## Contact
 
 If you're interested in collaborating or want to discuss:
 
-- ✉️ Email: judhapratamaa@gmail.com
-- 🐦 X: [@DhikaV0](https://x.com/AndhikaJud31563)
+- Email: judhapratamaa@gmail.com
+- X: [@DhikaV0](https://x.com/AndhikaJud31563)
+- Insta: [@dhik_dihk](https://www.instagram.com/dhik_dihk)
