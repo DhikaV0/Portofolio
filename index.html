@@ -20,7 +20,9 @@
               dark: "#0a0a0a",
             },
             surface: {
+              hover_light: "#ffffff",
               light: "#f5f5f5",
+              hover_dark: "#222831",
               dark: "#141414",
             },
             text: {
@@ -50,6 +52,7 @@
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 
 <body class="bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark font-sans transition-colors duration-300">
@@ -69,10 +72,22 @@
       </nav>
 
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="border border-border-light dark:border-border-dark px-2 py-2 ml-5 rounded-md text-sm">
+      <button id="theme-toggle" class="border border-border-light dark:border-border-dark hover:bg-surface-light dark:hover:bg-surface-hover_dark px-2 py-2 ml-5 rounded-md text-sm">
         <i class="fa-solid fa-sun block dark:hidden text-black"></i>
         <i class="fa-solid fa-moon hidden dark:block text-white"></i>
       </button>
+
+      <!-- Dropdown Button -->
+      <button id="dropdown-toggle" class="md:hidden px-2 py-1 border border-border-light dark:border-border-dark rounded-md hover:bg-surface-light dark:hover:bg-surface-hover_dark">
+        <i class="fa-solid fa-list text-black dark:text-white"></i>
+      </button>
+      <div id="dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-surface-light dark:bg-surface-dark shadow-lg py-1 z-20 top-[85px] rounded-lg">
+        <a href="#home" class="block px-4 py-2 text-sm text-dark dark:text-white hover:bg-highlight hover:border">Home</a>
+        <a href="#about" class="block px-4 py-2 text-sm text-dark dark:text-white hover:bg-highlight hover:border">About</a>
+        <a href="#skills" class="block px-4 py-2 text-sm text-dark dark:text-white hover:bg-highlight hover:border">Skills</a>
+        <a href="#projects" class="block px-4 py-2 text-sm text-dark dark:text-white hover:bg-highlight hover:border">Projects</a>
+        <a href="#contact" class="block px-4 py-2 text-sm text-dark dark:text-white hover:bg-highlight hover:border">Contact</a>
+      </div>
     </div>
   </div>
 </header>
@@ -82,9 +97,8 @@
   <div class="order-1 md:order-2 flex justify-center md:justify-end">
     <img
       src="Assets/Picture/Hoshimi Miyabi _ ZZZ.jpg"
-      class="w-[20rem] h-[20rem] rounded-full object-cover border border-border-light dark:border-border-dark shadow-soft"
-      alt="Profile"
-    />
+      class="w-[15rem] md:w-[18rem] lg:w-[20rem] aspect-square rounded-full object-cover border border-border-light dark:border-border-dark shadow-soft"
+      alt="Profile"/>
   </div>
   <div class="order-2 md:order-1 text-center md:text-left max-w-md">
     <h1 class="text-4xl md:text-5xl font-bold leading-tight">
@@ -104,7 +118,7 @@
       <a href="https://x.com/AndhikaJud31563" class=" w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center hover:shadow-soft dark:hover:shadow-softDark"><i class="fa-brands fa-twitter"></i></a>
     </div>
     <div class="mt-8 flex gap-4 justify-center md:justify-start">
-      <a href="#projects" class="px-5 py-2 border rounded-md hover:bg-surface-light dark:hover:bg-surface-dark transition">
+      <a href="#projects" class="px-5 py-2 border rounded-md hover:bg-surface-light dark:hover:bg-surface-hover_dark transition">
         View Projects
       </a>
       <a href="#contact" class="px-5 py-2 bg-text-light dark:bg-text-dark text-bg-light dark:text-bg-dark rounded-md">
@@ -130,22 +144,14 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="pt-[16rem] pb-[16rem] px-6">
+<section id="skills" class="pt-[10rem] pb-[10rem] px-6">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold mb-12">Skills</h2>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-      <div class="border border-border-light dark:border-border-dark rounded-lg p-4 text-center">
-        JavaScript
-      </div>
-      <div class="border border-border-light dark:border-border-dark rounded-lg p-4 text-center">
-        PHP
-      </div>
-      <div class="border border-border-light dark:border-border-dark rounded-lg p-4 text-center">
-        Laravel
-      </div>
-      <div class="border border-border-light dark:border-border-dark rounded-lg p-4 text-center">
-        MySQL
+    <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 border border-border-light dark:border-border-dark py-8 rounded-lg">
+      <p class="col-span-4 sm:col-span-6 md:col-span-8 text-left ml-4 font-medium">Programming Languages</p>
+      <div class="border border-border-light dark:border-border-dark rounded-lg p-4 text-center mx-4 hover:shadow-soft dark:hover:shadow-softDark transition">
+        <i class="fa-brands fa-js text-3xl"></i>
       </div>
     </div>
   </div>
@@ -160,7 +166,7 @@
       <div class="border border-border-light dark:border-border-dark rounded-lg p-6">
         <h3 class="font-semibold text-lg">Dino Era</h3>
         <p class="mt-2 text-muted-light dark:text-muted-dark">
-          API-based website showcasing prehistoric animals by era.
+          Dino-API is an API that contains dinosaurs and other prehistoric animals from the past. This API consists of three eras, namely the Triassic, Cretaceous, and Jurassic.
         </p>
         <a href="#" class="inline-block mt-4 text-sm underline">
           View Project
@@ -185,11 +191,11 @@
         </a>
       </div>
     </div>
-  </div>
-  <div class="py-2 border rounded-md hover:bg-surface-light dark:hover:bg-surface-dark transition mt-5 max-w-max">
-    <a href="https://github.com/DhikaV0" class="text-md px-10 py-2">
-      View All Projects
-    </a>
+    <button class="py-2 border rounded-md hover:bg-surface-hover_light dark:hover:bg-surface-hover_dark transition mt-5 max-w-max px-10 py-2">
+      <a href="https://github.com/DhikaV0" class="text-md">
+        View All Projects
+      </a>
+    </button>
   </div>
 </section>
 
@@ -205,7 +211,7 @@
         class="w-full border border-border-light dark:border-border-dark bg-transparent px-4 py-3 rounded-md outline-none" />
       <textarea rows="4" name="message" placeholder="Message" required
         class="w-full border border-border-light dark:border-border-dark bg-transparent px-4 py-3 rounded-md outline-none"></textarea>
-      <button class="w-full bg-text-light dark:bg-text-dark text-bg-light dark:text-bg-dark py-3 rounded-md">
+      <button class="w-full bg-text-light dark:bg-text-dark text-bg-light dark:text-bg-dark py-3 rounded-md hover:opacity-80 transition">
         Send Message
       </button>
     </form>
@@ -216,7 +222,7 @@
   © 2025 Andhika Judha Pratama
 </footer>
 
-<!-- JS -->
+<!-- SCRIPTS -->
 <script>
   /* Theme Toggle */
   const toggle = document.getElementById("theme-toggle");
@@ -255,6 +261,22 @@
   }
 
   typeLoop();
+
+  /* Dropdown Menu */
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.getElementById('dropdown-toggle');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+  
+    dropdownToggle.addEventListener('click', function() {
+      dropdownMenu.classList.toggle('hidden');
+    });
+  
+    document.addEventListener('click', function(event) {
+      if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.add('hidden');
+      }
+    });
+  });
 </script>
 
 </body>
